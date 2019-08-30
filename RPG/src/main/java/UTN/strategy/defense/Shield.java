@@ -3,6 +3,6 @@ package UTN.strategy.defense;
 public class Shield implements DefenseBehaviour {
     @Override
     public void defense() {
-        //todo implement
+        System.out.println("I'm defending with my Shield");
     }
 }

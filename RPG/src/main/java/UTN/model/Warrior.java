@@ -1,4 +1,8 @@
 package UTN.model;
 
-public class Warrior extends Character {
+public class Warrior extends Player {
+    @Override
+    public void display() {
+        System.out.println("I'm a Warrior");
+    }
 }
