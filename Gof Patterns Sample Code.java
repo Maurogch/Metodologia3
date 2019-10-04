@@ -2,13 +2,16 @@
 
 Factory concreteFactory = new ConcreteFactory(); // new MageFactory
 
-AbstractClass classToConstruct = concreteFactory.createClass(); // Creating a mage
+AbstractClass classToConstruct = concreteFactory.createClass1(); // Creating a mage
+AbstractClass classToConstruct = concreteFactory.createClass2(); // Creating a warrior
 
 //----------- Abstract Factory -----------//
 
-IFactory abstractFactory = new AbstractFactory(); // new NeverLandFactory
+IFactory abstractFactory1 = new AbstractFactory1(); // new NeverLandFactory
+IFactory abstractFactory2 = new AbstractFactory2(); // new SkylandFactory
 
-AbstractClass classToConstruct = abstractFactory.createSubClass(); // Creating a mage: createMage()
+AbstractClass classToConstruct = abstractFactory1.createSubClass(); // Creating a mage: createMage() from neverland
+AbstractClass classToConstruct = abstractFactory2.createSubClass(); // Creating a mage: createMage() from skyland
 
 //----------- Builder -----------//
 
@@ -39,8 +42,8 @@ observerClass.update(); // this is run when a notify from observable comes
 //----------- Decorator -----------//
 
 Class concreteClass = new ConcreteClass();
-concreteClass = new ConcreteDecoratorA(concreteClass); // pisas variable y le asignas adentro la anterior
-concreteClass = new ConcreteDecoratorB(concreteDecoratorB);
+concreteClass = new ConcreteDecoratorA(concreteClass); // Resign variable value with the decorator, and put previous variable value (concreteClass) inside decorator
+concreteClass = new ConcreteDecoratorB(concreteDecoratorB); // Do the same with next decorator
 
 //concreteDecoratorA.setComponent(concreteClass); // Decorator must have an object, see it like as setConcreteClass()
 //concreteDecoratorB.setComponent(concreteDecoratorA) // Add previous decorator, and so on if theres new decorators
@@ -65,9 +68,9 @@ Class class = Class.getInstance();
 //----------- Adapter -----------//
 
 class Target {
-    Service service = new Service();
+    Service service = new Service(); // Adapter
 
-    public void getSomething(){
+    public void getSomething(){ // Not a void function
         service.getSomething(); // Service will get what you need from an external resource that needed to be adapted
     }
 }
@@ -76,7 +79,7 @@ class Target {
 
 Facade facade = new Facade();
 
-facade.MethodA(); // Divide de load in two (or more) methods inside of facade
+facade.MethodA(); // Divide the load in two (or more) methods inside of facade
 facade.MethodB();
 
 //----------- Proxy -----------//
@@ -89,7 +92,7 @@ class Proxy implements Subject { // Implements the same interface as the Class t
     private Subject concreteSubject; // has the subject to proxy as attribute
 
     @Override
-    public void Request(){ // Oberrides the method of the interface
+    public void Request(){ // Overrides the method of the interface
         // Use 'lazy initialization'
         if (concreteSubject == null){ // If it isn't initialized, construct it
             concreteSubject = new ConcreteSubject(); // Logic of load inside constructor
