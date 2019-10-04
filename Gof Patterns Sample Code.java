@@ -1,17 +1,18 @@
 //----------- Factory -----------//
 
-Factory concreteFactory = new ConcreteFactory(); // new MageFactory
+Factory concreteFactory1 = new ConcreteFactory1(); // new MageFactory
+Factory concreteFactory2 = new ConcreteFactory2(); // new WarriorFactory
 
-AbstractClass classToConstruct = concreteFactory.createClass1(); // Creating a mage
-AbstractClass classToConstruct = concreteFactory.createClass2(); // Creating a warrior
+AbstractClass classToConstruct1 = concreteFactory1.createClass(); // Creating a mage
+AbstractClass classToConstruct2 = concreteFactory2.createClass(); // Creating a warrior
 
 //----------- Abstract Factory -----------//
 
 IFactory abstractFactory1 = new AbstractFactory1(); // new NeverLandFactory
 IFactory abstractFactory2 = new AbstractFactory2(); // new SkylandFactory
 
-AbstractClass classToConstruct = abstractFactory1.createSubClass(); // Creating a mage: createMage() from neverland
-AbstractClass classToConstruct = abstractFactory2.createSubClass(); // Creating a mage: createMage() from skyland
+AbstractClass classToConstruct = abstractFactory1.createSubClass1(); // Creating a mage: createMage() from neverland
+AbstractClass classToConstruct = abstractFactory2.createSubClass1(); // Creating a mage: createMage() from skyland
 
 //----------- Builder -----------//
 
